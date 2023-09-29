@@ -1,5 +1,5 @@
 {% set name = "egglog" %}
-{% set version = "0.5.1" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/egglog-{{ version }}.tar.gz
-  sha256: e114da890ad4a0ec78d207d38d9757f157e7d605247a3738aebfd475f97a6114
+  sha256: fc81dd013ea7de4a727d77f07f9a789178e8bf8efd661c8747448ec8a45fdac2
 
 build:
-  skip: True  # [py<37]
+  skip: true  # [py<37]
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   build:
