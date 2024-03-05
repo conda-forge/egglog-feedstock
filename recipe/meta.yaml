@@ -1,5 +1,5 @@
 {% set name = "egglog" %}
-{% set version = "4.0.1" %}
+{% set version = "6.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/egglog-{{ version }}.tar.gz
-  sha256: 847364ed2962c633638773962662cac2be26be5ed36271a1d1ec1cfc29715f60
+  sha256: dfa579651160ca394476b82f9a45b54c5a02cedf4a491c2919526f98b66ae92e
 
 build:
   skip: true  # [py<310]
@@ -27,6 +27,8 @@ requirements:
     - typing-extensions
     - black
     - python-graphviz
+
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
 
 test:
   imports:
