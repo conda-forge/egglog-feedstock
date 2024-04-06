@@ -19,8 +19,9 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
   host:
+    # Try loosening maturin requirement for python 3.12
     - python
-    - maturin >=0.13,<0.14
+    - maturin >=0.13 #,<0.14
     - pip
   run:
     - python
