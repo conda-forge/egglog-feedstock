@@ -10,7 +10,8 @@ source:
   sha256: 2cc940418b054c25d6e2918bd32dafa0d887061a89a767e1484b94410ce0254a
 
 build:
-  skip: true  # [py<310]
+  # Unavailable for 3.12 until upstream move to a newer version of maturin
+  skip: true  # [py<310 or py>=312]
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
@@ -28,7 +29,6 @@ requirements:
     - typing-extensions
     - black
     - python-graphviz
-
 
 test:
   imports:
