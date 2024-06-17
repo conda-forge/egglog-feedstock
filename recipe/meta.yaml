@@ -13,7 +13,7 @@ build:
   # Unavailable for 3.12 until upstream move to a newer version of maturin
   skip: true  # [py<310 or py>=312]
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -21,6 +21,7 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('rust') }}
   host:
+    # Try loosening maturin requirement for python 3.12
     - python
     - maturin >=0.13,<0.14
     - pip
