@@ -1,5 +1,5 @@
 {% set name = "egglog" %}
-{% set version = "7.2.0" %}
+{% set version = "8.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/egglog-{{ version }}.tar.gz
-  sha256: 2cc940418b054c25d6e2918bd32dafa0d887061a89a767e1484b94410ce0254a
+  sha256: bf93628a03e32c404b9b7b2b739a15021bcde9b53cd32a8ef9d8861c6f307011
 
 build:
   # Unavailable for 3.12 until upstream move to a newer version of maturin
   skip: true  # [py<310 or py>=312]
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   build:
