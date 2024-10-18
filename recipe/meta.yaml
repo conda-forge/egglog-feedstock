@@ -11,24 +11,25 @@ source:
 
 build:
   # Unavailable for 3.12 until upstream move to a newer version of maturin
-  skip: true  # [py<310 or py>=312]
+  skip: true  # [py<310 or py>=313]
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - {{ stdlib('c') }}
     - {{ compiler('rust') }}
   host:
     - python
-    - maturin >=0.13,<0.14
+    - maturin >=1.0,<2.0
     - pip
   run:
     - python
     - typing-extensions
     - black
     - python-graphviz
+    - anywidget
 
 test:
   imports:
