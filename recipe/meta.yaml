@@ -10,8 +10,7 @@ source:
   sha256: bf93628a03e32c404b9b7b2b739a15021bcde9b53cd32a8ef9d8861c6f307011
 
 build:
-  # Unavailable for 3.12 until upstream move to a newer version of maturin
-  skip: true  [py<310 or py>=313]
+  skip: true  # [py<310 or py>=313]
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
