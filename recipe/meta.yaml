@@ -11,7 +11,7 @@ source:
 
 build:
   # Unavailable for 3.12 until upstream move to a newer version of maturin
-  skip: true  # [py<310 or py>=313]
+  skip: true  [py<310 or py>=313]
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
