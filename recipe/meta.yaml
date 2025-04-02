@@ -1,5 +1,5 @@
 {% set name = "egglog" %}
-{% set version = "9.0.1" %}
+{% set version = "10.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/egglog-{{ version }}.tar.gz
-  sha256: e473ca5e588f8fa6ef221b6132106a3f452710b9d5795ea60a645c0a1e27c668
+  sha256: 95a179f128a027edcb29ebb875262d8563899efb3d13605e0d1956703ef7910f
 
 build:
   skip: true  # [py<311 or py>=313]
@@ -21,7 +21,7 @@ requirements:
     - {{ compiler('rust') }}
   host:
     - python
-    - maturin >=1.0,<2.0
+    - maturin >=1.7,<2.0
     - pip
   run:
     - python
