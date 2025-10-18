@@ -1,0 +1,55 @@
+schema_version: 1
+
+context:
+  name: egglog
+  version: 11.4.0
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/egglog-${{ version }}.tar.gz
+  sha256: b2a1a142e3a2939dfdbf1bc110beaa953e709d7e473ae685bc9b7e2909653e93
+
+build:
+  number: 0
+  script:
+    - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
+    - ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - ${{ compiler('rust') }}
+    - cargo-bundle-licenses
+  host:
+    - python
+    - maturin >=1.7,<2.0
+    - pip
+  run:
+    - python
+    - typing-extensions
+    - black
+    - python-graphviz
+    - anywidget
+
+tests:
+  - python:
+      imports:
+        - egglog
+      pip_check: true
+
+about:
+  summary: E-graphs in Python built around the the egglog rust library
+  license: MIT
+  license_file:
+    - LICENSE
+    - THIRDPARTY.yml
+  homepage: https://github.com/metadsl/egglog-python
+  documentation: https://egg-smol-python.readthedocs.io
+
+extra:
+  recipe-maintainers:
+    - thewchan
