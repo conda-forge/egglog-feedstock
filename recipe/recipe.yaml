@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: egglog
-  version: 11.4.0
+  version: "12.0.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/egglog-${{ version }}.tar.gz
-  sha256: b2a1a142e3a2939dfdbf1bc110beaa953e709d7e473ae685bc9b7e2909653e93
+  sha256: c0f4cf5493fa58754aec93871d46ce025e329f37121b30a5d358e0a3bc2c335e
 
 build:
   number: 0
+  skip: match(python, "<3.11")
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - ${{ PYTHON }} -m pip install . -vv
@@ -34,6 +35,8 @@ requirements:
     - black
     - python-graphviz
     - anywidget
+    # Not listed as required but needed to pass import test
+    - cloudpickle >=3
 
 tests:
   - python:
