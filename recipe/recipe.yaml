@@ -35,6 +35,8 @@ requirements:
     - black
     - python-graphviz
     - anywidget
+    # Not listed as required but needed to pass import test
+    - cloudpickle >=3
 
 tests:
   - python:
