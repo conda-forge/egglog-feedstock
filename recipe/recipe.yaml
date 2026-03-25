@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: egglog
-  version: "13.0.1"
+  version: "13.1.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/egglog-${{ version }}.tar.gz
-  sha256: dc4ca99ebc4460faac9f094afee2ac718aafff0a3c5b82283d670fb44263b231
+  sha256: a049f43a46636e95714f3eb958de430e806968423e6ed335a29bba413be09fc3
 
 build:
   number: 0
